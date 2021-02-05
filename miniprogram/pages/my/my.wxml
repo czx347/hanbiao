@@ -1,0 +1,68 @@
+<view class="background"></view>
+<view style="width: 100%;height: 10%;"></view>
+
+ <view class="infor">
+ <view>
+  <image mode="scaleToFill" src="../../images/1.jpg" class="my-image"></image>
+ </view>
+ <view>
+  <view class="infor-name">用户名</view>
+   <view class="infor-bind">
+     <text>邀请码:计算机1111</text>
+     <view>更换邀请码</view>
+   </view>
+</view>
+</view>
+
+<view class="my-main">
+  <view class="my-inform">
+    <view class="inform-text">
+      <image src="../../images/tongzhi.png" mode="aspectFit"></image>
+      <text>通知</text>
+    </view>
+    <view class="inform-details"></view>
+  </view>
+
+  <view class="my-inform">
+    <view class="min-title">服务</view>
+    <view class="my-title">
+      <view>
+       <image src="../../images/logo.png" mode="aspectFit"></image>
+       <text>个人信息</text>
+      </view>
+      <view style="font-weight: 800;color:gray">></view>
+    </view>
+    <view class="my-title">
+      <view>
+        <image src="../../images/fabutonzhi.png" mode="aspectFit"></image>
+        <text>发布通知</text>
+      </view>
+      <view style="font-weight: 800;color:gray">></view>
+    </view>
+    <view class="my-title">
+      <view>
+        <image src="../../images/bianjibiaoge.png" mode="aspectFit"></image>
+        <text>编辑表格</text>
+      </view>
+      <view style="font-weight: 800;color:gray">></view>
+    </view>
+    <view class="my-title">
+      <view>
+        <image src="../../images/bangzhu.png" mode="aspectFit"></image>
+        <text>帮助反馈</text>
+      </view>
+      <view style="font-weight: 800;color:gray">></view>
+    </view>
+    <view class="my-title">
+      <view>
+        <image src="../../images/guanyu.png" mode="aspectFit"></image>
+        <text>关于涵表</text>
+      </view>
+      <view style="font-weight: 800;color:gray">></view>
+    </view>
+  </view>
+
+  <view class="my-inform my-button">退出当前邀请码</view>
+
+</view>
+

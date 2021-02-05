@@ -1,0 +1,13 @@
+<view class="navigation-container" style="{{'height: ' + navigationBarAndStatusBarHeight}}">
+  <view style="{{'height: ' + statusBarHeight}}"></view>
+    <view class="navigation-bar" style="{{'height:' + navigationBarHeight}}">
+        <view class=".navigation-title" style="{{'line-height:' + navigationBarHeight}}">
+          <view class="nav-img" style="{{'height:' + navigationBarHeight}}">
+           <image src="../../images/back.png" style="height: 45rpx; width: 45rpx;" mode="aspectFit" ></image>
+          </view>
+          <view class="nav-text">{{text}}</view>
+        </view>
+    </view>  
+  <view style="{{'height: ' + statusBarHeight}}"></view>
+</view>
+<!-- <view style="{{'height: ' + navigationBarAndStatusBarHeight}}; background: #5696F8"></view> -->

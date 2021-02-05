@@ -1,0 +1,12 @@
+<view class="navigation-container" style="{{'height: ' + navigationBarAndStatusBarHeight}}">
+    <view style="{{'height: ' + statusBarHeight}}"></view>
+    <view class="navigation-bar" style="{{'height:' + navigationBarHeight}}">
+        <view class="navigation-title" style="{{'line-height:' + navigationBarHeight}}">
+          <icon type="search"  class="icon"></icon>
+          <input type="text" placeholder="请输入{{text}}.." class="input"/>
+          <view class="search">搜索</view>
+        </view>
+    </view>  
+    <view style="{{'height: ' + statusBarHeight}}"></view>
+</view>
+<!-- <view style="{{'height: ' + navigationBarAndStatusBarHeight}}; background: #5696F8"></view> -->

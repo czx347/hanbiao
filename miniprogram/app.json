@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/admin/edit/edit",
+    "pages/admin/audit/audit",
+    "pages/admin/inform/inform",
+    "pages/my/my",
+    "pages/admin/userManagement/userManagement",
+    "pages/bind/bind",
+    "pages/login/login",
+    "pages/home/home"
+  ],
+  "window": {
+    "backgroundColor": "#F2F2F2",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F2F2F2",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "selectedColor": "#5696F8",
+    "list": [
+      {
+        "pagePath": "pages/admin/userManagement/userManagement",
+        "text": "用户",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/userAfter.png"
+      },
+      {
+        "pagePath": "pages/admin/audit/audit",
+        "text": "审核",
+        "iconPath": "images/shenghe.png",
+        "selectedIconPath": "images/shengheAfter.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/myAfter.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

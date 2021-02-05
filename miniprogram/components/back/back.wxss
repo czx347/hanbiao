@@ -1,0 +1,35 @@
+
+.navigation-container {
+  /* position: fixed; */
+  width: 100%;
+  /* z-index: 99;
+  top: 0;
+  left: 0; */
+  background-color: #5696F8;
+}
+.navigation-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.nav-img{
+  height: 40rpx;
+  width: 60rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav-text{
+  width: 100%;
+  color: white;
+}
+
+.navigation-title {
+  width: 100%;
+  margin: auto 0;
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,284 @@
+<back text="编辑表格"></back>
+
+<view class="edit-top">
+  <view>
+    <view wx:if="{{currentTab === true}}">
+      <view class="edit-top-line">
+        <view data-idx="1" bindtap="addFormStyle">短文本</view>
+        <view data-idx="2" bindtap="addFormStyle">长文本</view>
+        <view data-idx="3" bindtap="addFormStyle">照片</view>
+        <view data-idx="4" bindtap="addFormStyle">定位</view>
+      </view>
+      <view class="edit-top-line">
+        <view data-idx="5" bindtap="addFormStyle">单选</view>
+        <view data-idx="6" bindtap="addFormStyle">多选</view>
+        <view data-idx="7" bindtap="addFormStyle">日期</view>
+        <view data-idx="8" bindtap="addFormStyle">时间</view>
+      </view>
+    </view>
+    <view bindtap="navbarTap" class="edit-top-switch-father" 
+    style="{{'top: ' + (currentTab === false ? navAndStaHeight : navAndStaHeight + 79) + 'px'}}">
+      <view class="edit-top-switch" >{{currentTab === false ? '展开 ▼' : '收起 ▲'}}</view>
+    </view>
+  </view>
+</view>
+
+<scroll-view scroll-y  enable-back-to-top class="edit-main">
+  <view style="width: 100%;height: 50rpx;"></view>
+  <view wx:for="{{formStyle}}" wx:key="unique">
+
+    <view class="edit-data" wx:if="{{item.formS_type === 0}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">短文本(标题)</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" style="background-color: #D7D7D7">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="edit-data-main-isMust line">
+          <label for="{{'isMust' + index}}">必填信息</label>
+          <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked disabled></switch>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input id="{{'title' + index}}" type="text" placeholder="输入标题文字..."/>
+        </view>
+      </view>
+    </view>
+
+  <!-- 短文本 -->
+    <view class="edit-data" wx:if="{{item.formS_type === 1}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">短文本</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" bindtap="deleteFormStyle" data-idx="{{index}}">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="edit-data-main-isMust line">
+          <label for="{{'isMust' + index}}">必填信息</label>
+          <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked></switch>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input id="{{'title' + index}}" type="text" placeholder="输入短文本标题..."/>
+        </view>
+      </view>
+    </view>
+  <!-- 长文本 -->
+  <view class="edit-data" wx:elif="{{item.formS_type === 2}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">长文本</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" bindtap="deleteFormStyle" data-idx="{{index}}">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="edit-data-main-isMust line">
+          <label for="{{'isMust' + index}}">必填信息</label>
+          <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked></switch>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input id="{{'title' + index}}" type="text" placeholder="输入长文本标题..."/>
+        </view>
+      </view>
+    </view>
+  <!-- 照片 -->
+  <view class="edit-data" wx:elif="{{item.formS_type === 3}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">照片</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" bindtap="deleteFormStyle" data-idx="{{index}}">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="edit-data-main-isMust line">
+          <label for="{{'isMust' + index}}">必填信息</label>
+          <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked></switch>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input type="text" placeholder="输入照片标题..." id="{{'title' + index}}"/>
+        </view>
+      </view>
+    </view>
+  <!-- 定位 -->
+  <view class="edit-data" wx:elif="{{item.formS_type === 4}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">定位</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" bindtap="deleteFormStyle" data-idx="{{index}}">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="line">
+          <view class="edit-data-main-isMust">
+            <label for="{{'isMust' + index}}">必填信息</label>
+            <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked></switch>
+          </view>
+          <view class="edit-data-main-isMust">
+            <label for="{{'Manual' + index}}">手动选择</label>
+            <switch color="#5696F8" type="checkbox" id="{{'Manual' + index}}"></switch>
+          </view>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input id="{{'title' + index}}" type="text" placeholder="输入定位标题..."/>
+        </view>
+      </view>
+    </view>
+  <!-- 单选 -->
+  <view class="edit-data" wx:elif="{{item.formS_type === 5}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">单选</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" bindtap="deleteFormStyle" data-idx="{{index}}">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="edit-data-main-isMust line">
+          <label for="{{'isMust' + index}}">必填信息</label>
+          <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked></switch>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input id="{{'title' + index}}" type="text" placeholder="输入单选标题..."/>
+        </view>
+        <view class="edit-data-main-text line">
+          <label >编辑选项</label>
+          <view class="edit-data-main-option">
+            <view class="edit-data-main-text" wx:for="{{item.formS_detail}}" wx:for-item="i" wx:key="unique" wx:for-index="idx">
+              <view class="edit-data-main-text-delete" data-idx="{{index}}+{{idx}}" bindtap="deleteOption">—</view>
+              <input type="text" placeholder="输入选项..." value="{{i}}"/>
+            </view>
+            <view class="edit-data-main-button" data-idx="{{index}}" bindtap="addOption">增加选项</view>
+          </view>
+        </view>
+
+
+
+      </view>
+    </view>
+  <!-- 多选 -->
+  <view class="edit-data" wx:elif="{{item.formS_type === 6}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">多选</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" bindtap="deleteFormStyle" data-idx="{{index}}">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="edit-data-main-isMust line">
+          <label for="{{'isMust' + index}}">必填信息</label>
+          <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked></switch>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input type="text" placeholder="输入多选标题..." id="{{'title' + index}}"/>
+        </view>
+        <view class="edit-data-main-text line">
+          <label>编辑选项</label>
+          <view class="edit-data-main-option">
+            <view class="edit-data-main-text" wx:for="{{item.formS_detail}}" wx:for-item="i" wx:key="unique" wx:for-index="idx">
+              <view class="edit-data-main-text-delete" data-idx="{{index}}+{{idx}}" bindtap="deleteOption">—</view>
+              <input type="text" placeholder="输入选项..."/>
+            </view>
+            <view class="edit-data-main-button" data-idx="{{index}}" bindtap="addOption">增加选项</view>
+          </view>
+        </view>
+
+
+      </view>
+    </view>
+  <!-- 日期 -->
+  <view class="edit-data" wx:elif="{{item.formS_type === 7}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">日期</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" bindtap="deleteFormStyle" data-idx="{{index}}">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="edit-data-main-isMust line">
+          <label for="{{'isMust' + index}}">必填信息</label>
+          <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked></switch>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input id="{{'title' + index}}" type="text" placeholder="输入日期标题..."/>
+        </view>
+      </view>
+    </view>
+  <!-- 时间 -->
+  <view class="edit-data" wx:elif="{{item.formS_type === 8}}"> 
+      <view class="edit-data-top">
+        <view class="edit-data-title">
+          <view class="edit-data-title-number">{{index + 1}}</view>
+          <view class="edit-data-title-text">时间</view>
+        </view>
+        <view class="edit-data-switch">
+          <label for="{{'show' + index}}">展开</label>
+          <switch id="{{'show' + index}}" color="#5696F8" checked  bindchange="show" data-idx="{{index}}"></switch>
+        </view>
+        <view class="edit-data-delete" bindtap="deleteFormStyle" data-idx="{{index}}">x</view>
+      </view>
+      <view class="edit-data-main" hidden="{{item.show === false}}">
+        <view class="edit-data-main-isMust line">
+          <label for="{{'isMust' + index}}">必填信息</label>
+          <switch color="#5696F8" type="checkbox" id="{{'isMust' + index}}" checked></switch>
+        </view>
+        <view class="edit-data-main-text line">     
+          <label for="{{'title' + index}}">标题文字:</label>
+          <input type="text" placeholder="输入时间标题..." id="{{'title' + index}}"/>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</scroll-view>
+
+<view class="edit-bottom">
+  <view bindtap="navbarTap">保存并使用</view>
+</view>

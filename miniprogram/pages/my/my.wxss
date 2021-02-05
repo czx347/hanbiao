@@ -1,0 +1,120 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+
+.background{
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  background-color: #5696F8;
+  border-radius: 0  0 20% 20%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.infor{
+  display: flex;
+  flex-direction: row;
+  margin: 50rpx;
+}
+
+.my-image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 400rpx;
+  border: white 5rpx solid;
+}
+
+.infor-name{
+  margin: 0 0 20rpx 20rpx;
+  font-size: 60rpx;
+  color: white;
+  font-weight: 600;
+
+}
+
+.infor-bind{
+  font-size: 20rpx;
+  margin: 30rpx 0 20rpx 20rpx;
+  border-radius: 20rpx;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.infor-bind view{
+  background-color: #C9E2F8;
+  color: black;
+  border-radius: 10rpx;
+  padding: 5rpx 10rpx;
+  margin: 0 10rpx;
+}
+
+.my-main{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.my-inform{
+  background-color: white;
+  width: 90%;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+}
+
+.inform-text{
+  display: flex;
+  flex-direction: row;
+}
+
+.inform-text image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align:middle;
+}
+
+.inform-details{
+  width: 100%;
+  height: 100rpx;
+  background-color: rgb(236, 231, 231);
+  margin: 20rpx auto 0;
+}
+
+.min-title{
+  font-size: small;
+  width: 100%;
+  border-bottom: 1rpx black solid;
+  margin-bottom: 20rpx;
+}
+
+.my-title{
+  display: flex;
+  justify-content: space-between;
+  margin: 40rpx 0;
+
+}
+
+.my-title text{
+  margin: 10rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  
+}
+
+.my-title image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align:middle;
+}
+
+.my-button{
+  text-align: center;
+  background-color: #DFE7F2;
+  font-weight: 600;
+}

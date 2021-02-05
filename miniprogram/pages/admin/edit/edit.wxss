@@ -1,0 +1,228 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+
+.edit-top{
+  width: 100%;
+}
+
+.edit-top-line{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #5696F8;
+  height: 40px;
+}
+
+.edit-top-line view{
+  width: 25%;
+  border: 10rpx solid #5696F8;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  background-color: white;
+}
+
+.edit-top-switch-father{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  left: 0;
+  z-index: 99;
+  top: 0;
+}
+
+.edit-top-switch{
+  width: 100%;
+  height: 50rpx;
+  background-color: #5696F8;
+  text-align: center;
+  font-size: smaller;
+  line-height: 50rpx;
+  color: white;
+  border-radius: 50%/0 0 100% 100%;
+}
+
+.edit-main{
+  width: 100%;
+  height: 100%;
+}
+
+.edit-bottom{
+  width: 100%;
+  height: 130rpx;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+
+}
+
+.edit-bottom view{
+  width: 95%;
+  height: 70rpx;
+  background-color: #5696F8;
+  margin: auto;
+  border-radius: 30rpx;
+  text-align: center;
+  color: white;
+  line-height: 70rpx;
+
+}
+
+.edit-data{
+  width: 90%;
+  background-color: white;
+  margin: auto;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.edit-data-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10rpx 20rpx;
+  vertical-align:middle;
+  height: 60rpx;
+}
+
+.edit-data-title{
+  line-height: 60rpx;
+  height: 60rpx;
+  width: 300rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-data-title-number{
+  height: 20rpx;
+  margin-right: 5rpx;
+  vertical-align:middle;
+  line-height: 20rpx;
+  border-radius: 100%;
+  border: 5rpx solid #5696F8;
+  text-align: center;
+  color: #5696F8;
+  font-weight: 800;
+  margin-top: 13rpx;
+  font-size: 20rpx;
+  padding: 5rpx 10rpx;
+}
+
+.edit-data-title-text{
+  font-weight: 700;
+  line-height: 60rpx;
+}
+
+.edit-data-switch label{
+  font-size: 30rpx;
+  line-height: 60rpx;
+
+}
+
+.edit-data-switch switch{
+  transform: scale(0.5);
+  transform-origin: 10% 45%;
+  line-height: 60rpx;
+}
+
+.edit-data-delete{
+  margin-top: 10rpx;
+  background-color: rgb(207, 84, 84);
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  font-size: 25rpx;
+  font-weight: 700;
+  color: white;
+  border-radius: 10rpx;
+}
+
+.edit-data-main{
+  background-color: #C9E2F8;
+  border-radius: 0 0 20rpx 20rpx;
+  padding: 20rpx;
+  font-size: 30rpx;
+  height: 100%;
+}
+
+.line{
+  width: 100%;
+  margin: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-data-main label{
+  width: 140rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+
+}
+
+.edit-data-main-isMust{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-data-main-isMust switch{
+  transform: scale(0.7);
+  transform-origin: 0 45%;
+
+}
+
+.edit-data-main-text{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  line-height: 50rpx;
+  margin: 20rpx 0;
+}
+
+.edit-data-main-option{
+  width: 75%;
+  height: 100%;
+}
+
+.edit-data-main-text input{
+  height: 30rpx;
+  font-size: 30rpx;
+  width: 75%;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}
+
+.edit-data-main-text-delete{
+  background-color: rgb(207, 84, 84);
+  width: 35rpx;
+  height: 35rpx;
+  text-align: center;
+  line-height: 30rpx;
+  border-radius: 40rpx;
+  color: white;
+  font-weight: 800;
+  font-size: 25rpx;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+
+}
+
+.edit-data-main-button{
+  width: 150rpx;
+  height: 50rpx;
+  background-color: #5696F8;
+  line-height: 50rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  color: white;
+  margin-left: 60rpx;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}

@@ -1,0 +1,23 @@
+<top text="标题"></top>
+
+<view class="audit-top">
+  <view  class="audit-button {{currentTab==2 ? 'active' : ''}}" data-idx="2" bindtap="navbarTap">未审核</view>
+  <view  class="audit-button {{currentTab==3 ? 'active' : ''}}" data-idx="3" bindtap="navbarTap">已审核</view>
+</view>
+<scroll-view scroll-y  enable-back-to-top class="sroll">
+  <view wx:for="{{request}}" wx:key="unique" class="audit-data" hidden="{{ currentTab != (item.req_state == 4?3 : item.req_state)}}">
+    <view>
+      <view class="audit-titlt">{{item.req_title}}</view>
+      <view class="audit-time">用户：{{item.user_name}}</view>
+      <view class="audit-time">时间：{{item.req_time}}</view>
+      <view class="audit-schedule">
+        <text>处理进度</text>
+        <progress percent="{{item.req_state == 2 ? '50' : '100'}}" color="{{item.req_state == 4 ? 'rgb(207, 84, 84)' : '#5696F8'}}" active stroke-width="5" duration="1"></progress>
+      </view>
+    </view>
+    <view>
+      <view class="audit-button mini-button" style="background:#F0A35F">{{item.req_state >= 3 ? '查看':'审核'}}</view>
+      <view class="audit-button mini-button" style="background:rgb(207, 84, 84)" hidden="{{item.req_state < 3 }}">撤回</view>
+    </view>
+  </view>
+</scroll-view>

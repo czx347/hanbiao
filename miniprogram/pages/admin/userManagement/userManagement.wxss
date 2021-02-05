@@ -1,0 +1,51 @@
+page{ 
+  height: 100%; 
+  overflow: hidden;
+  width: 100%;
+ }  
+
+.mana-data{
+  display: flex;
+  flex-direction: row;
+  background-color: #C9E2F8;
+  margin: 20rpx 30rpx;
+  border-radius: 20rpx;
+  padding: 10rpx;
+}
+
+.mana-image{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.mana-text{
+  font-size: 40rpx;
+  font-weight: 700;
+  margin: 10rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width: 500rpx;
+  height: 100rpx;
+  white-space:nowrap;
+}
+
+.mana-button{
+  margin: 0 10rpx;
+
+}
+
+.mana-button view{
+  margin: 15rpx 5rpx;
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  color: white;
+
+}
+
+.scroll{
+  height: 100%;
+  width: 100%;
+}
