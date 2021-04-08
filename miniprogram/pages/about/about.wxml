@@ -1,0 +1,12 @@
+<back text="关于涵表"></back>
+
+<view class="about-top" bindtap="test">
+    <image src="../../images/logo.png" class="about-logo" mode="aspectFit"></image>
+    <view class="about-name">涵表</view>
+    <view class="about-slogan">让信息化办公涵盖每个人</view>
+  </view>
+
+  <view class="about-main" bindtap="updataMiniProgram">
+    <view class="about-main-left">检查更新 </view>
+    <view class="about-main-right">(当前版本：{{version}}{{envVersion}})</view>
+  </view>

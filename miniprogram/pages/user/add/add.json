@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "back":"/components/back/back",
+    "bottom":"/components/bottom/bottom"
+  },
+  "disableScroll":true 
+}

@@ -1,0 +1,8 @@
+<view class="navigation-container" style="{{'height: ' + navigationBarAndStatusBarHeight}}">
+  <view style="{{'height: ' + statusBarHeight}}"></view>
+    <view class="navigation-bar" style="{{'height:' + navigationBarHeight}}">
+    </view>  
+  <view style="{{'height: ' + statusBarHeight}}"></view>
+</view>
+
+<view style="{{'height: ' + navigationBarAndStatusBarHeight}};"></view>

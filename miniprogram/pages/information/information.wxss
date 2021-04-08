@@ -1,0 +1,28 @@
+.inf-main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20rpx;
+}
+
+.inf-main-right{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.inf-main-image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 15rpx;
+  border-radius: 20rpx;
+}
+
+.inf-main-input{
+  margin-top: 20rpx;
+  text-align:right;
+  width: 100%;
+  color: rgb(158, 152, 152);
+  color: rgb(216, 208, 208);
+}

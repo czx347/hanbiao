@@ -1,0 +1,41 @@
+.top{
+  position: absolute;
+  width:100%;
+  top:10rpx;
+  display: flex;
+  flex-flow:wrap;
+  z-index: 10;
+  color:white;
+  justify-content:space-around;
+}
+page{
+  background:rgb(14, 13, 13);
+}
+view{
+  font-size: 30rpx;
+}
+.bottom{
+  position: absolute;
+  width:100%;
+  bottom:50rpx;
+  display: flex;
+  z-index: 10;
+  align-items: center;
+  justify-content: space-between;
+}
+.bottom .btnBox{
+  /* display: inline-block;
+  font-size:28rpx;
+  z-index:2;
+  text-align:center; */
+  color:#5696F8;
+  /* border: #5696F8 2rpx solid; */
+}
+.bottom .btnColor{
+  /* display: inline-block;
+  font-size:28rpx;
+  z-index:2;
+  text-align:center; */
+  /* background:#5696F8; */
+  color:white;
+}

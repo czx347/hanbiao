@@ -1,0 +1,100 @@
+page{ 
+  height: 100%; 
+  width: 100%;
+ }  
+
+.history-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  left: 0;
+  background-color: white;
+  height: 110rpx;
+}
+
+.active{
+  background-color: #5696F8;
+  color: white;
+  border: white 1rpx solid;
+}
+
+.blackBorder{
+  border: 1rpx solid #5696F8;
+  color: #5696F8;
+}
+
+.history-top view{
+  width: 45%;
+  height: 70rpx; 
+  line-height: 70rpx;
+  margin: 20rpx;
+}
+
+.history-button{
+  text-align: center;
+  border-radius: 22rpx;
+}
+
+.history-data{
+  display: flex;
+  flex-direction: row;
+  background-color: #C9E2F8;
+  margin: 20rpx 30rpx;
+  border-radius: 20rpx;
+  padding: 10rpx;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+
+.history-titlt{
+  font-size: 40rpx;
+  font-weight: 700;
+  margin: 0 0 20rpx 0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width: 450rpx;
+  white-space:nowrap;
+}
+
+.history-schedule{
+  font-size: small;
+  margin: 10rpx 0 0 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.history-time{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width: 450rpx;
+  white-space:nowrap;
+  margin-bottom: 5rpx;
+}
+
+.history-schedule progress{
+  margin: auto 10rpx;
+  width: 70%;
+}
+
+.mini-button{
+  width: 130rpx;
+  height: 60rpx;
+  color: white;
+  border: none;
+  line-height: 60rpx;
+  font-size: 26rpx;
+}
+
+.button-group{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sroll{
+  height: 100%;
+  height: 100%;
+}

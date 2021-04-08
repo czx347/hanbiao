@@ -1,0 +1,218 @@
+<back></back>
+
+<view class="add-top" style="{{'top: ' + navAndStaHeight}}" wx:if="{{req_state < 2}}">
+  <view class="add-top-detail" hidden="{{currentTab === false}}">
+    <view wx:if="{{req_state === 1}}" class="add-top-detail-0" bindtap="showInform">{{anno_name == '' ? '无通知' : anno_name}}</view>
+    <view wx:elif="{{req_state === 0}}">
+      <picker range="{{invi_detail}}" value="{{detailIndex}}" bindchange="changeInvitation">
+        <view class="add-top-detail-1">
+          <view class="add-top-detail-1-left">
+            涵码
+          </view>
+          <view class="add-top-detail-1-middle">
+            {{invi_detail[detailIndex]}}
+          </view>
+          <view class="add-top-detail-1-right">
+            >
+          </view>
+        </view>
+      </picker>
+      <view class="add-top-detail-1" bindtap="showInform">
+        <view class="add-top-detail-1-left">
+          通知
+        </view>
+        <view class="add-top-detail-1-middle">
+          {{anno_name == '' ? '无通知' : anno_name}}
+        </view>
+        <view class="add-top-detail-1-right">
+          >
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="add-top-button" bindtap="navbarTap">{{currentTab === false ? '展开 ▼' : '收起 ▲'}}</view>
+</view>
+
+
+<scroll-view scroll-y  enable-back-to-top class="add-main">
+
+  <view style="width: 100%;height: 230rpx;" hidden="{{currentTab === false}}" wx:if="{{req_state < 2}}"></view>
+  <view style="width: 100%;height: 55rpx;" wx:if="{{req_state < 2}}"></view>
+
+
+  <view class="add-main-opinion" wx:if="{{req_state == 2 && user_admin == 1}}">
+    <view class="add-main-opinion-title">处理意见</view>
+    <view class="add-main-opinion-textarea">
+      <textarea type="text" placeholder="请输入意见.." maxlength="80" bindinput="bindOpinion"/>
+    </view>
+  </view>
+
+<view wx:for="{{formStyle[0].formS_style}}" wx:key="unique">
+<!-- 短文本 -->
+  <view class="add-main-type" wx:if="{{item.formS_type == '短文本' || item.formS_type == '短文本(主标题)'}}">
+    <view class="add-main-line">
+      <view class="add-main-line">
+        <image class="add-main-icon" src="/images/duanwenben.png" mode="aspectFit"></image>
+        <view class="add-main-title">{{item.formS_title}}</view>
+        <view class="add-main-isMust" hidden="{{item.formS_must === false}}">*</view>
+      </view>
+    </view>
+    <view class="add-main-line">
+      <input type="text" class="add-main-input" data-idx="{{index}}" bindinput="bindText" value="{{reqD_inform[index].reqD_detail}}" disabled="{{disable}}"/>
+    </view>
+  </view>
+
+<!-- 长文本 -->
+  <view class="add-main-type" wx:elif="{{item.formS_type == '长文本'}}">
+      <view class="add-main-line">
+        <view class="add-main-line">
+          <image class="add-main-icon" src="/images/changwenben.png" mode="aspectFit"></image>
+          <view class="add-main-title">{{item.formS_title}}</view>
+          <view class="add-main-isMust" hidden="{{item.formS_must === false}}">*</view>
+        </view>
+      </view>
+      <view class="add-main-line" style="height: 210rpx;">
+        <textarea type="text" class="add-main-textarea" maxlength="80" data-idx="{{index}}" bindinput="bindText" value="{{reqD_inform[index].reqD_detail}}"  disabled="{{disable}}"/>
+      </view>
+    </view>
+
+<!-- 定位 -->
+  <view class="add-main-type" wx:elif="{{item.formS_type == '定位'}}">
+      <view class="add-main-line">
+        <view class="add-main-line">
+          <image class="add-main-icon" src="/images/dinwei.png" mode="aspectFit"></image>
+          <view class="add-main-title">{{item.formS_title}}</view>
+          <view class="add-main-isMust" hidden="{{item.formS_must === false}}">*</view>
+        </view>
+        <view class="add-main-line" hidden="{{disable}}">
+          <view class="add-main-refresh" wx:if="{{item.formS_detail == false}}" bindtap="getLocation" data-idx="{{index}}">刷新</view>
+          <view class="add-main-refresh" wx:elif="{{item.formS_detail == true}}" bindtap="chooseLocation" data-idx="{{index}}">选择</view>
+        </view>
+      </view>
+      <view>
+        <view class="add-main-location" data-idx="{{index}}" wx:if="{{disable}}">
+          <view style="width: 20rpx;height:50rpx"></view>
+          {{reqD_inform[index].reqD_detail.address}}
+        </view>
+        <view class="add-main-location" data-idx="{{index}}" wx:elif="{{item.formS_detail == false}}"  bindtap="getLocation">
+          <view style="width: 20rpx;height:50rpx"></view>
+          {{reqD_inform[index].reqD_detail.address}}
+        </view>
+        <view class="add-main-location" data-idx="{{index}}" wx:elif="{{item.formS_detail == true}}" bindtap="chooseLocation">
+          <view style="width: 20rpx;height:50rpx"></view>
+          {{reqD_inform[index].reqD_detail.address}}
+        </view>
+      </view>
+    </view> 
+
+<!-- 照片 -->
+  <view class="add-main-type" wx:elif="{{item.formS_type == '照片'}}">
+    <view class="add-main-line">
+      <view class="add-main-line">
+        <image class="add-main-icon" src="/images/zhaopian.png" mode="aspectFit"></image>
+        <view class="add-main-title">{{item.formS_title}}</view>
+        <view class="add-main-isMust" hidden="{{item.formS_must === false}}">*</view>
+      </view>
+    </view>
+    <view wx:if="{{reqD_inform[index].reqD_detail == '' && disable}}" class="add-main-time" style="text-align: center;padding: 10rpx 0;">无照片</view>
+    <view wx:if="{{reqD_inform[index].reqD_detail != ''}}">
+      <swiper indicator-dots autoplay current="{{current}}" class="add-main-swiper">
+        <block wx:for="{{reqD_inform[index].reqD_detail}}" wx:key="unique" wx:for-index="idx" wx:for-item="i">
+          <swiper-item>
+            <view class="add-main-delete" data-idx="{{index+' '+idx}}" catchtap='deleteImage'  hidden="{{disable}}">x</view>
+            <image src="{{i.imag_path}}" class="add-main-image" data-idx="{{index+' '+idx}}" bindtap="upload"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="add-main-upload" bindtap="upload" data-idx="{{index}}"  hidden="{{disable}}">上传</view>
+  </view>
+<!-- 单选 -->
+  <view class="add-main-type" wx:elif="{{item.formS_type == '单选'}}">
+    <view class="add-main-line">
+      <view class="add-main-line">
+        <image class="add-main-icon" src="/images/danxuan.png" mode="aspectFit"></image>
+        <view class="add-main-title">{{item.formS_title}}</view>
+        <view class="add-main-isMust" hidden="{{item.formS_must === false}}">*</view>
+      </view>
+    </view>
+    <view>
+      <radio-group class="add-main-radio-group" bindchange="bindRadio" data-idx="{{index}}">
+        <label class="add-main-radio" wx:for="{{item.formS_detail}}" wx:key="unique" wx:for-item="i" wx:for-index="idx">
+          <radio value="{{i}}" color="#5696F8" style="transform: scale(0.8);" checked="{{reqD_inform[index].reqD_detail[idx].checked}}" disabled="{{disable}}"/>{{i}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+<!-- 多选 -->
+  <view class="add-main-type" wx:elif="{{item.formS_type == '多选'}}">
+    <view class="add-main-line">
+      <view class="add-main-line">
+        <image class="add-main-icon" src="/images/duoxuan.png" mode="aspectFit"></image>
+        <view class="add-main-title">{{item.formS_title}}</view>
+        <view class="add-main-isMust" hidden="{{item.formS_must === false}}">*</view>
+      </view>
+    </view>
+    <view>
+      <checkbox-group class="add-main-radio-group" bindchange="bindCheckbox" data-idx="{{index}}">
+        <label class="add-main-radio" wx:for="{{item.formS_detail}}" wx:key="unique" wx:for-item="i" wx:for-index="idx">
+          <checkbox value="{{i}}" color="#5696F8" style="transform: scale(0.8);" checked="{{reqD_inform[index].reqD_detail[idx].checked}}"  disabled="{{disable}}"/>{{i}}
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+
+<!-- 日期 -->
+  <view class="add-main-type" wx:elif="{{item.formS_type == '日期'}}">
+    <view class="add-main-line">
+      <view class="add-main-line">
+        <image class="add-main-icon" src="/images/riqi.png" mode="aspectFit"></image>
+        <view class="add-main-title">{{item.formS_title}}</view>
+        <view class="add-main-isMust" hidden="{{item.formS_must === false}}">*</view>
+      </view>
+    </view>
+    <view class="add-main-line">
+      <picker mode="date" value="{{reqD_inform[index].reqD_detail}}" bindchange="bindText" class="add-main-time" data-idx="{{index}}" disabled="{{disable}}">
+        <view>
+          当前选择: {{reqD_inform[index].reqD_detail}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+<!-- 时间 -->
+  <view class="add-main-type" wx:elif="{{item.formS_type == '时间'}}">
+    <view class="add-main-line">
+      <view class="add-main-line">
+        <image class="add-main-icon" src="/images/shijian.png" mode="aspectFit"></image>
+        <view class="add-main-title">{{item.formS_title}}</view>
+        <view class="add-main-isMust" hidden="{{item.formS_must === false}}">*</view>
+      </view>
+    </view>
+    <view class="add-main-line">
+      <!-- <input type="text" class="add-main-input" placeholder="请输入.."/> -->
+      <picker mode="time" value="{{reqD_inform[index].reqD_detail}}" bindchange="bindText" class="add-main-time" data-idx="{{index}}"  disabled="{{disable}}">
+        <view >
+          当前选择: {{reqD_inform[index].reqD_detail}}
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<bottom text="{{bottom}}"></bottom>
+
+<view style="width: 100%;height: 130rpx;" wx:if="{{req_state < 3}}"></view>
+<view style="{{'height: ' + navAndStaHeight}}"></view>
+</scroll-view>
+
+<view class="add-bottom" wx:if="{{user_admin == 0}}" hidden="{{req_state > 1}}">
+  <view style="background-color: #F0A35F;" bindtap="save">保存</view>
+  <view bindtap="submit">提交</view>
+</view>
+<view class="add-bottom" wx:elif="{{user_admin == 1}}" hidden="{{req_state != 2}}">
+  <view style="background-color: rgb(207, 84, 84);" bindtap="audit" data-idx="3">驳回</view>
+  <view bindtap="audit" data-idx="4">通过</view>
+</view>
+

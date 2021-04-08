@@ -1,19 +1,23 @@
 <back text="发布通知"></back>
 
-<scroll-view scroll-y  enable-back-to-top style="{{'height: ' + scrollHeight}}" class="inform-main" enable-flex>
+<view class="inform-main">
   <view class="inform-announce">
-    <textarea name="" id="" cols="30" rows="10" class="inform-textarea"></textarea>
+    <textarea  maxlength="80" class="inform-textarea" bindinput="bindInform" value="{{anno_name}}"></textarea>
     <view class="inform-button">
-      <view style="background-color:#F0A35F">清空</view>
-      <view>发布</view>
+      <view style="background-color:#F0A35F" bindtap="clear">清空</view>
+      <view bindtap="save">发布</view>
     </view>
   </view>
 
   <view class="inform-history" wx:for="{{announcement}}" wx:key="unique">
     <view class="inform-title">
       <view>{{item.anno_time}}</view>
-      <view class="inform-delete">X</view>
+      <view class="inform-delete" data-idx="{{index}}" bindtap="delete">x</view>
     </view>
     <view class="inform-details">{{item.anno_name}}</view>
   </view>
-</scroll-view>
+
+  <bottom text="{{bottom}}"></bottom>
+
+
+</view>

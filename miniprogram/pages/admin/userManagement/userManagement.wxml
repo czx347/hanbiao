@@ -1,16 +1,21 @@
-<top text="名称"></top>
+<view wx:if="{{user_admin == 1}}" style="height: 100%; "  bindtouchstart="touchStart" bindtouchend="touchEnd" bindtouchmove="touchMove" >
+<top text="名称" bind:search="search"></top>
 
-<scroll-view  scroll-y  enable-back-to-top class="scroll">
-  <view wx:for="{{inviUser}}" wx:key="unique" class="mana-data" style="background-color: {{item.inviU_block == 1 ? '#D7D7D7' : '#C9E2F8'}};">
-    <view>
-        <image src="{{item.user_photo}}" class="mana-image" mode="aspectFit"></image>
+<view>
+  <view wx:for="{{inviUser}}" wx:key="unique" class="mana-data" style="background-color: {{item.inviU_block == 1 ? '#D7D7D7' : '#C9E2F8'}};" bindtap="userRequest" data-idx="{{index}}">
+    <view style="height: 150rpx; width: 150rpx;">
+        <image src="{{item.user[0].user_photo || '../../../images/noImage.jpg'}}" class="mana-image" mode="scaleToFill"></image>
     </view>
     <view class="mana-text">
-      <text >{{item.user_name}}</text>
+      <text >{{item.user[0].user_name || '无昵称'}}</text>
     </view>
     <view class="mana-button">
-      <view style="background-color: #F0A35F;">{{item.inviU_block == 1 ? '恢复' : '踢出'}}</view>
-      <view style="background-color: rgb(207, 84, 84);" wx:if="{{item.inviU_block == 0}}">拉黑</view>
+      <view style="background-color: #F0A35F;" wx:if="{{item.inviU_admin == 0}}" hidden="{{item.inviU_block == 1}}" data-idx="{{index}}" catchtap="remove">移除</view>
+      <view style="background-color: {{item.inviU_block == 1 ? '#F0A35F':'rgb(207, 84, 84)'}}" 
+       data-idx="{{index}}" catchtap="block" wx:if="{{item.inviU_admin == 0}}">{{item.inviU_block == 1 ? '恢复' : '拉黑'}}</view>
     </view>
   </view>
-</scroll-view>
+  <bottom text="{{text}}"></bottom>
+</view>
+
+</view>

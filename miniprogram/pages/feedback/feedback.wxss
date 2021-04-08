@@ -1,0 +1,21 @@
+.feedback-textarea{
+  width: 90%;
+  margin: 50rpx auto;
+}
+
+.feedback-textarea-button{
+  width: 90%;
+  margin: 50rpx auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.feedback-textarea-button view{
+  width: 150rpx;
+  height: 60rpx;
+  background-color: #5696F8;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  color: white;
+}

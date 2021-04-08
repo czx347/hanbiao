@@ -1,3 +1,4 @@
+const db = wx.cloud.database();
 Page({
 
   /**
@@ -7,13 +8,29 @@ Page({
     // 导航栏和状态栏高度
     navAndStaHeight:
     wx.getStorageSync('statusBarHeight') +
-    wx.getStorageSync('navigationBarHeight'),
-    currentTab: true ,
-    formStyle:[{
-      formS_type: 0,
-      show:true,
-    }]
+    wx.getStorageSync('navigationBarHeight') - 1 +
+    'px',
 
+  },
+
+    /**
+   * 获得基本信息
+   */
+  getData(){
+    this.setData({
+      openid:wx.getStorageSync('openid'),
+      invitation:wx.getStorageSync('invitation'),
+      num:'num1',
+      currentTab: true ,
+      formS_style:[{
+        formS_type: '短文本(主标题)',
+        show:true,
+        formS_title:'',
+        formS_must: true,
+        formS_detail:'',
+      }],
+      back:true
+    })
   },
 
   /**
@@ -30,22 +47,35 @@ Page({
    */
   addFormStyle:function(e){
     const type = e.currentTarget.dataset.idx
-    if(type === '5' ||type === '6')
+    if(type === '单选' ||type === '多选')
     {
-      this.data.formStyle.push({
-        formS_type: type * 1,
+      this.data.formS_style.push({
+        formS_title:'',
+        formS_must: true,
+        formS_type: type,
         show:true,
         formS_detail:['']
       })
-    }else{
-      this.data.formStyle.push({
-        formS_type: type * 1,
+    }else if(type === '定位'){
+      this.data.formS_style.push({
+        formS_title:'',
+        formS_must: true,
+        formS_type: type,
         show:true,
+        formS_detail:true
+      })
+    }else{
+      this.data.formS_style.push({
+        formS_title:'',
+        formS_must: true,
+        formS_type: type,
+        show:true,
+        formS_detail:'',
       })
     }
-
     this.setData({
-      formStyle: this.data.formStyle
+      formS_style: this.data.formS_style,
+      num: 'num'+ (this.data.formS_style.length - 1)
     })
   },
 
@@ -54,9 +84,9 @@ Page({
    */
   deleteFormStyle:function(e){
     const number = e.currentTarget.dataset.idx
-    this.data.formStyle.splice(number * 1,1)
+    this.data.formS_style.splice(number * 1,1)
     this.setData({
-      formStyle: this.data.formStyle
+      formS_style: this.data.formS_style
     })
 
   },
@@ -67,9 +97,9 @@ Page({
   deleteOption:function(e){
     const idx = e.currentTarget.dataset.idx
     const number = idx.split('+')
-    this.data.formStyle[number[0]].formS_detail.splice(number[1] * 1,1)
+    this.data.formS_style[number[0]].formS_detail.splice(number[1] * 1,1)
     this.setData({
-      formStyle: this.data.formStyle
+      formS_style: this.data.formS_style
     })
 
   },
@@ -79,9 +109,9 @@ Page({
    */
   addOption:function(e){
     const number = e.currentTarget.dataset.idx
-    this.data.formStyle[number].formS_detail.push('')
+    this.data.formS_style[number].formS_detail.push('')
     this.setData({
-      formStyle: this.data.formStyle
+      formS_style: this.data.formS_style
     })
   },
 
@@ -89,9 +119,154 @@ Page({
    *展开
    */
   show:function(e){
-    const show = 'formStyle[' + e.currentTarget.dataset.idx + '].show'
+    const show = 'formS_style[' + e.currentTarget.dataset.idx + '].show'
     this.setData({
       [show]:e.detail.value
+    })
+
+  },
+
+  /**
+   *检查是否填完
+   */
+  isNull(){
+    const formS_style = this.data.formS_style
+    for(const f of formS_style){
+      if(f.formS_type === '多选' || f.formS_type === '单选'){
+        if(f.formS_title == ''){
+          return true
+        }
+        for(const s of f.formS_detail){
+          if(s == ''){
+            return true
+          }
+        }
+      }else{
+        if(f.formS_title == ''){
+          return true
+        }
+      }
+    }
+    return false
+  },
+
+   /**
+   * 绑定标题
+   */
+  bindTitle(e){
+    const number = e.currentTarget.dataset.idx
+    const formS_title = 'formS_style[' + number + '].formS_title'
+    this.setData({
+      [formS_title]: e.detail.value
+    })
+  },
+
+  /**
+   * 绑定选项
+   */
+  bindOption(e){
+    const idx = e.currentTarget.dataset.idx
+    const number = idx.split('+')
+    const formS_detail = 'formS_style[' + number[0] + '].formS_detail[' + number[1] + ']'
+    this.setData({
+      [formS_detail]: e.detail.value
+    })
+  },
+
+  /**
+   * 绑定是否必填
+   */
+  bindIsMust(e){
+    const number = e.currentTarget.dataset.idx
+    const formS_must = 'formS_style[' + number + '].formS_must'
+    this.setData({
+      [formS_must]: e.detail.value
+    })
+  },
+
+  /**
+   * 保存
+   */
+  save(){
+    const that = this
+    if(that.isNull()){
+      wx.showToast({
+        title: '信息未填写完整',
+        icon: 'error',
+        duration: 2000
+      }) 
+      return
+    }
+    wx.showLoading({
+      title: '保存中',
+    })
+    wx.cloud.callFunction({
+      name: 'saveFormStyle',
+      data: {
+        invi_detail:that.data.invitation,
+        formS_creator:that.data.openid,
+        formS_style:that.data.formS_style,
+        formS_delete:0,
+        formS_live:1
+      },
+      success: res => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+          duration: 2000
+        })
+        if(!that.data.back){ 
+          wx.switchTab({
+            url: '../../user/history/history',
+          })
+          that.setData({
+            back:true
+          })
+        }
+      },
+      fail: error =>{
+        wx.showToast({
+          title: '保存失败',
+          icon: 'error',
+          duration: 2000
+        }) 
+        console.error  
+      }
+    })
+  },
+
+  /**
+   * 绑定是否手选
+   */
+  bindManual(e){
+    const number = e.currentTarget.dataset.idx
+    const formS_detail = 'formS_style[' + number + '].formS_detail'
+    this.setData({
+      [formS_detail]: e.detail.value
+    })
+  },
+
+  /**
+   * 获得样式
+   */
+  getFormStyle(){
+    const that = this
+    db.collection('formStyle').where({
+      invi_detail: that.data.invitation,
+      formS_delete: 0,
+      formS_live:1
+    }).get().then(res => {
+      if(res.data != '')
+      {
+        that.setData({
+          formS_style:res.data[0].formS_style
+        })
+      }else{
+        that.setData({
+          back:false
+        })
+      }
     })
 
   },
@@ -100,6 +275,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getData()
+    this.getFormStyle()
+
 
   },
 
@@ -128,6 +306,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    this.setData({
+      back:true
+    }) 
 
   },
 
@@ -144,11 +325,4 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

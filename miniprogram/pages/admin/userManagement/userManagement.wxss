@@ -1,27 +1,27 @@
 page{ 
   height: 100%; 
-  overflow: hidden;
   width: 100%;
  }  
 
-.mana-data{
+ .mana-data{
   display: flex;
   flex-direction: row;
   background-color: #C9E2F8;
   margin: 20rpx 30rpx;
   border-radius: 20rpx;
-  padding: 10rpx;
+  padding: 20rpx;
 }
 
 .mana-image{
   width: 150rpx;
   height: 150rpx;
+  border-radius: 10rpx;
 }
 
 .mana-text{
   font-size: 40rpx;
   font-weight: 700;
-  margin: 10rpx;
+  margin-left: 20rpx;
   overflow:hidden;
   text-overflow:ellipsis;
   width: 500rpx;
@@ -30,22 +30,22 @@ page{
 }
 
 .mana-button{
-  margin: 0 10rpx;
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
 
 .mana-button view{
-  margin: 15rpx 5rpx;
   width: 150rpx;
-  height: 50rpx;
-  line-height: 50rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   text-align: center;
   border-radius: 50rpx;
   color: white;
 
 }
 
-.scroll{
-  height: 100%;
-  width: 100%;
-}

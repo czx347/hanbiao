@@ -1,10 +1,10 @@
 
 .navigation-container {
-  /* position: fixed; */
+  position: fixed;
   width: 100%;
-  /* z-index: 99;
+  z-index: 99;
   top: 0;
-  left: 0; */
+  left: 0;
   background-color: #5696F8;
 }
 .navigation-bar {

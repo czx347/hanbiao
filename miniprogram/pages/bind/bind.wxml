@@ -1,31 +1,32 @@
-<back text="邀请码绑定"></back>
-
-<view class="bind-main">
-  <view class="row type-button">
-      <view class="type-button-view {{currentTab == 0 ? 'on-button' : '' }}" data-idx="0"  bindtap="navbarTap"><text>用户端</text></view>
-      <view class="type-button-view {{currentTab == 1 ? 'on-button' : '' }}" data-idx="1"  bindtap="navbarTap"><text>管理员</text></view>
+<view wx:if="{{Loading === 0}}">
+  <view class="bind-main">
+    <view class="row type-button">
+        <view class="type-button-view {{currentTab == 0 ? 'on-button' : '' }}" data-idx="0"  bindtap="navbarTap"><text>提交端</text></view>
+        <view class="type-button-view {{currentTab == 1 ? 'on-button' : '' }}" data-idx="1"  bindtap="navbarTap"><text>审核端</text></view>
+    </view>
+    <view class="bind-form">
+          <radio-group class="row" hidden="{{currentTab == 0}}" data-idx="type" bindchange="bindDate">
+            <view>
+              <radio id="create" value="0" color="#5696F8" checked></radio>
+              <label for="create"><text>创建</text></label>
+            </view>
+            <view>
+              <radio id="join" value="1" color="#5696F8"></radio>
+              <label  for="join"><text>加入</text></label>
+            </view>
+          </radio-group>
+        <view class="row bind-input">
+          <input type="text" id="invitation" placeholder="请输入涵码" maxlength="10" data-idx="invitation" bindinput="bindDate" value="{{invitation}}"/>
+        </view>
+        <view class="row  bind-input" hidden="{{currentTab == 0}}">
+          <input type="text" password="true" id="password" placeholder="请输入密码" maxlength="10" data-idx="password" bindinput="bindDate"/>
+        </view>
+        <view class="row  bind-input" wx:if="{{currentTab == 1 && type == 0}}">
+          <input type="text" password="true" id="checkPassword" placeholder="请再次输入密码" maxlength="10" data-idx="checkPassword" bindinput="bindDate"/>
+        </view>
+    </view>
   </view>
-  <view class="bind-form">
-        <radio-group class="row" hidden="{{currentTab == 0}}">
-          <view>
-            <radio id="create" value="创建" color="#5696F8"></radio>
-            <label for="create"><text>创建</text></label>
-          </view>
-          <view>
-            <radio id="join" value="加入" color="#5696F8"></radio>
-            <label  for="join"><text>加入</text></label>
-          </view>
-        </radio-group>
-      <view class="row bind-input">
-        <label for="invitation"><text>邀请码</text></label>
-        <input type="text" id="invitation" placeholder="请输入邀请码"/>
-      </view>
-      <view class="row  bind-input" hidden="{{currentTab == 0}}">
-        <label for="password"><text space="ensp">密码</text></label>
-        <input type="text" id="password" placeholder="请输入密码"/>
-      </view>
-  </view>
-  <view class="bind-button">绑定</view>
+  <view class="bind-button" bindtap="bind">{{ing == 0 ? '绑定' : '绑定中…'}}</view>
 </view>
 
 

@@ -1,0 +1,16 @@
+<back text="更换涵码"></back>
+
+<scroll-view scroll-y  enable-back-to-top class="change-main">
+  <view class=" {{invitation == item.invi_detail ?  'active' : '' }} change-main-line" wx:for="{{inviUser}}" wx:key="unique" bindtap="change" data-idx="{{index}}">
+    <view class="change-main-icon">{{item.inviU_admin == 1? '审':'交'}}</view>
+    <view class="change-main-text">{{item.invi_detail}}</view>
+  </view>
+
+  <view style="width: 100%;height: 130rpx;"></view>
+  <view style="{{'height: ' + navAndStaHeight}}"></view>
+</scroll-view>
+
+<view class="change-bottom">
+  <view style="background-color: #F0A35F;" bindtap="clearUser">更换新涵码</view>
+  <view bindtap="updataUser">确定更换</view>
+</view>

@@ -1,68 +1,76 @@
-<view class="background"></view>
-<view style="width: 100%;height: 10%;"></view>
+<white></white>
 
+<view class="background" bindtouchstart="touchStart" bindtouchend="touchEnd" bindtouchmove="touchMove"></view>
  <view class="infor">
+ <navigator url="/pages/information/information" open-type="navigate" style="border-radius: 400rpx;width: 160rpx;height: 160rpx;">
+  <image mode="scaleToFill" src="{{user.user_photo || '../../images/noImage.jpg'}}" class="my-image"></image>
+ </navigator>
  <view>
-  <image mode="scaleToFill" src="../../images/1.jpg" class="my-image"></image>
- </view>
- <view>
-  <view class="infor-name">用户名</view>
+  <navigator class="infor-name"  url="/pages/information/information" open-type="navigate">{{user.user_name || '请设置昵称'}}</navigator>
    <view class="infor-bind">
-     <text>邀请码:计算机1111</text>
-     <view>更换邀请码</view>
-   </view>
-</view>
-</view>
-
-<view class="my-main">
-  <view class="my-inform">
-    <view class="inform-text">
-      <image src="../../images/tongzhi.png" mode="aspectFit"></image>
-      <text>通知</text>
+     <view>涵码： {{invitation}}</view>
     </view>
-    <view class="inform-details"></view>
-  </view>
+    <view  class="infor-bind-buttons">
+      <button class="infor-bind-button" bindtap="deleteUser" style="background-color: #C9E2F8;color: black;width: 160rpx;font-size: small !important;" size="mini">退出涵码</button>
+      <button class="infor-bind-button" open-type="share" style="background-color: #F0A35F;color: white;width: 160rpx;font-size: small !important;border:white" size="mini" plain="true">分享涵码</button>
+    </view>
+</view>
+</view>
 
-  <view class="my-inform">
+<view class="my-main"  bindtouchstart="touchStart" bindtouchend="touchEnd" bindtouchmove="touchMove">
+  <view style="height: 490rpx;width: 100%">
+    <view class="my-inform" bindtap="showInform">
+      <view class="inform-text">
+        <image src="../../images/tongzhi.png" mode="aspectFit"></image>
+        <text class="my-title-front">通知</text>
+      </view>
+      <view class="inform-details"><text style="height:100%;width: 100%;">{{anno_name}}</text></view>
+    </view>
+
     <view class="min-title">服务</view>
-    <view class="my-title">
-      <view>
+    <view style="height: 20rpx;background-color: white;margin: 0 20rpx; "></view>
+    <navigator class="my-title" url="/pages/information/information" open-type="navigate" hover-class="my-title-hover">
+      <view style="line-height: 40rpx;height: 40rpx;">
        <image src="../../images/logo.png" mode="aspectFit"></image>
-       <text>个人信息</text>
+       <view  class="my-title-front">个人信息</view>
       </view>
-      <view style="font-weight: 800;color:gray">></view>
-    </view>
-    <view class="my-title">
-      <view>
+      <view style="font-weight: 800;color:gray" class="my-title-front">></view>
+    </navigator>
+
+    <navigator class="my-title" url="/pages/admin/inform/inform" open-type="navigate" hover-class="my-title-hover" 
+    wx:if="{{user_admin == 1}}">
+      <view style="line-height: 40rpx;height: 40rpx;">
         <image src="../../images/fabutonzhi.png" mode="aspectFit"></image>
-        <text>发布通知</text>
+        <view  class="my-title-front">发布通知</view>
       </view>
-      <view style="font-weight: 800;color:gray">></view>
-    </view>
-    <view class="my-title">
-      <view>
+      <view style="font-weight: 800;color:gray" class="my-title-front">></view>
+    </navigator>
+
+
+    <navigator class="my-title" url="/pages/admin/edit/edit" open-type="navigate" hover-class="my-title-hover" wx:if="{{user_admin == 1}}">
+      <view style="line-height: 40rpx;height: 40rpx;">
         <image src="../../images/bianjibiaoge.png" mode="aspectFit"></image>
-        <text>编辑表格</text>
+        <view  class="my-title-front">编辑表格</view>
       </view>
-      <view style="font-weight: 800;color:gray">></view>
-    </view>
-    <view class="my-title">
-      <view>
+      <view style="font-weight: 800;color:gray" class="my-title-front">></view>
+    </navigator>
+    <navigator class="my-title" url="/pages/feedback/feedback" open-type="navigate" hover-class="my-title-hover">
+      <view style="line-height: 40rpx;height: 40rpx;">
         <image src="../../images/bangzhu.png" mode="aspectFit"></image>
-        <text>帮助反馈</text>
+        <view  class="my-title-front">帮助反馈</view>
       </view>
-      <view style="font-weight: 800;color:gray">></view>
-    </view>
-    <view class="my-title">
-      <view>
+      <view style="font-weight: 800;color:gray" class="my-title-front">></view>
+    </navigator>
+    <navigator class="my-title" url="/pages/about/about" open-type="navigate" hover-class="my-title-hover" style="  border-radius: 0 0 20rpx 20rpx;">
+      <view style="line-height: 40rpx;height: 40rpx;">
         <image src="../../images/guanyu.png" mode="aspectFit"></image>
-        <text>关于涵表</text>
+        <view  class="my-title-front">关于涵表</view>
       </view>
-      <view style="font-weight: 800;color:gray">></view>
-    </view>
+      <view style="font-weight: 800;color:gray" class="my-title-front">></view>
+    </navigator>
+    <navigator url="/pages/change/change" open-type="navigate" hover-class="my-title-hover" class="my-button">更换涵码</navigator>
   </view>
 
-  <view class="my-inform my-button">退出当前邀请码</view>
 
 </view>
 

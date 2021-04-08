@@ -1,0 +1,284 @@
+page{ 
+  height: 100%; 
+  width: 100%;
+ }  
+
+.add-top{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 99;
+  top: 0;
+}
+
+.add-top-detail{
+  background-color: #5696F8;
+  width: 100%;
+  height: 100%;
+  padding: 20rpx 0;
+}
+
+.add-top-detail-0{
+  background: hsla(0,0%,100%,.25) border-box;
+  margin: auto;
+  width: 85%;
+  padding: 20rpx;
+  height: 170rpx;
+  border-radius: 20rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  word-wrap:break-word;
+  text-align: center;
+}
+
+.add-top-detail-1{
+  background: hsla(0,0%,100%,.25) border-box;
+  margin: 20rpx auto;
+  width: 85%;
+  padding: 2%;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius:20rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.add-top-detail-1-left{
+  color: white;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 100rpx;
+
+}
+
+.add-top-detail-1-middle{
+  width: 100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  height: 40rpx;
+  line-height: 40rpx;
+
+}
+
+.add-top-detail-1-right{
+  height: 40rpx;
+  line-height: 40rpx;
+  color: gray;
+  margin-left: 20rpx;
+}
+
+.add-top-button{
+  width: 100%;
+  height: 50rpx;
+  background-color: #5696F8;
+  text-align: center;
+  font-size: smaller;
+  line-height: 40rpx;
+  color: white;
+  border-radius: 50%/0 0 100% 100%;
+}
+
+.add-main{
+  width: 100%;
+  font-size: 30rpx;
+  height: 100%;
+}
+
+.add-main-opinion{
+  width: 90%;
+  margin: 20rpx auto;
+  background-color: #5696F8;
+  border-radius: 40rpx;
+}
+
+.add-main-opinion-title{
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 37rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.add-main-opinion-textarea{
+  width: 100%;
+  height: 280rpx;
+}
+
+.add-main-opinion-textarea textarea{
+  background: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin: auto;
+  height: 200rpx;
+  width: 85%;
+
+}
+
+.add-main-type{
+  width: 90%;
+  margin: 20rpx auto;
+}
+
+.add-main-line{
+  display: flex;
+  flex-direction: row;
+  margin: 30rpx 0;
+  justify-content: space-between;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.add-main-title{
+  height: 40rpx;
+  line-height: 40rpx;
+  max-width: 400rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size: 30rpx;
+}
+
+.add-main-icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.add-main-isMust{
+  color:rgb(207, 84, 84);  
+  height: 40rpx;
+  line-height: 60rpx;
+  font-size: 50rpx;
+}
+
+.add-main-input{
+  border: 2rpx solid #5696F8;
+  border-radius: 10rpx;
+  width: 100%;
+  height: 50rpx;
+  padding: 10rpx 20rpx;
+  
+}
+
+.add-main-textarea{
+  border: 2rpx solid #5696F8;
+  border-radius: 10rpx;
+  padding: 5rpx 20rpx;
+  width: 100%;
+  height: 200rpx;
+}
+
+.add-main-refresh{
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: #F0A35F;
+  color: white;
+  width: 120rpx;
+  text-align: center;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  margin-top: -5rpx;
+}
+
+.add-main-location{
+  border: 2rpx solid #5696F8;
+  border-radius: 10rpx;
+  width: 100%;
+  padding: 10rpx 0;
+  vertical-align: top;
+  display: flex;
+  flex-direction: row;
+  line-height: 50rpx;
+}
+
+.add-main-delete{
+  background-color: rgb(207, 84, 84);
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 35rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: white;
+  border-radius: 10rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+
+.add-main-swiper{
+  width: 100%;
+  height: 300rpx;
+
+}
+
+.add-main-image{
+  width: 100%;
+  height: 300rpx;
+  border-radius: 20rpx;
+}
+
+.add-main-upload{
+  width: 100%;
+  height: 70rpx;
+  background-color: #5696F8;
+  margin: 20rpx 0;
+  text-align: center;
+  line-height: 70rpx;
+  color: white;
+  border-radius: 20rpx;
+}
+
+.add-main-radio-group{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  
+}
+
+.add-main-radio{
+  display: block;
+  width: 33.3%;
+  height: 50rpx;
+  margin: 10rpx 0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.add-main-time{
+  border: 2rpx solid #5696F8;
+  border-radius: 10rpx;
+  width: 100%;
+  height: 50rpx;
+  padding: 10rpx 20rpx;
+  line-height: 50rpx;
+}
+
+.add-bottom{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 99;
+  height: 130rpx;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.add-bottom view{
+  width: 80%;
+  height: 70rpx;
+  background-color: #5696F8;
+  margin: 10rpx 20rpx;
+  border-radius: 30rpx;
+  text-align: center;
+  color: white;
+  line-height: 70rpx;
+
+}

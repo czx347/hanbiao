@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "back":"/components/back/back",
+    "image-cropper":"/components/image-cropper/image-cropper"
+  },
+  "disableScroll":true 
+}

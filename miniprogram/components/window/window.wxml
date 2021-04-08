@@ -1,0 +1,7 @@
+<view class="window" style="{{display}}">
+  <view class="window-main">
+    <slot name="text"></slot>
+    <slot name="button"></slot>
+    <view class="window-close" bindtap="close">x</view>
+  </view>
+</view>

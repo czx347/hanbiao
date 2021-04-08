@@ -8,10 +8,10 @@ page{
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  margin: 200rpx 0;
 }
 
 .bind-form{
-  background-color: #C9E2F8;
   width: 85%;
   height: 600rpx;
   border-radius:10rpx;
@@ -40,30 +40,29 @@ page{
   font-weight: 600;
   letter-spacing:20rpx;
   font-size: 30rpx;
-  margin-top: 300rpx;
+  margin: 300rpx auto 0;
 }
 
 
 .type-button{
-  margin-top: 100rpx;
+  margin: 40rpx 0 100rpx;
   width: 85%;
-  border-radius: 10rpx 10rpx 0 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 .type-button-view{
-  height: 80rpx;
-  line-height: 80rpx;
-  width: 50%;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 30%;
   text-align: center;
-  border-radius: 10rpx 10rpx 0 0;
-  background-color: white;
-  font-size: 35rpx;
+  border-radius: 10rpx;
   margin: 0 20rpx;
   font-weight: 600;
 }
 
 .on-button{
-  background-color: #C9E2F8;
+  background-color: #5696F8;
   color: white;
   font-weight: 600;
 }
@@ -78,18 +77,15 @@ radio-group view{
   margin-right: 50rpx;
 }
 
-text{
-  vertical-align:middle;
-}
-
 input{
   height: 55rpx;
-  width: 80%;
+  width: 70%;
 }
 
 .bind-input{
   display: flex;
   justify-content: space-between;
   border-bottom: 1rpx black solid;
+  padding: 10rpx;
 }
 

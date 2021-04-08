@@ -1,0 +1,9 @@
+<back text="帮助反馈"></back>
+
+<textarea placeholder="聊聊此刻的想法，也可以提出产品反馈!" class="feedback-textarea" bindinput="bindFeedback"></textarea>
+
+<view style="  width: 90%;height: 2rpx;background-color: rgb(216, 208, 208);margin:auto;"></view>
+
+<view class="feedback-textarea-button">
+  <view bindtap="save">提交</view>
+</view>

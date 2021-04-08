@@ -1,0 +1,24 @@
+<back text="上传照片"></back>
+
+<scroll-view scroll-y  enable-back-to-top class="upload-main" scroll-into-view="{{num}}">
+
+  <view class="upload-image" wx:for="{{tempFilePaths}}" wx:key="unique" id="{{'num' + index}}">
+    <view class="upload-main-button">
+      <view class="upload-main-number">{{index + 1}}</view>
+      <view class="upload-main-delete" data-idx="{{index}}" catchtap='deleteImage' hidden="{{disable}}">x</view>
+    </view>
+    <view  bindtap="preview" data-idx="{{index}}">
+      <image src="{{item.imag_path}}" class="upload-main-image"></image>
+    </view>
+    <view class="upload-main-textarea">
+      <textarea placeholder="{{disable === false ? '如有备注，请输入..': ''}}" maxlength="80" value="{{item.imag_detail}}" data-idx="{{index}}" bindinput="bindText" disabled="{{disable}}"></textarea>
+    </view>
+  </view>
+
+  <view style="width: 100%;height: 130rpx;"></view>
+  <view style="{{'height: ' + navAndStaHeight}}"></view>
+</scroll-view>
+
+<view class="upload-bottom" hidden="{{disable}}">
+  <view style="background-color: #F0A35F;" bindtap="uploadImages">上传</view>
+</view>

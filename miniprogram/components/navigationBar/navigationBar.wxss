@@ -1,10 +1,10 @@
 
 .navigation-container {
-  /* position: fixed; */
+  position: fixed;
   width: 100%;
-  /* z-index: 99;
+  z-index: 99;
   top: 0;
-  left: 0; */
+  left: 0;
   background-color: #5696F8;
 }
 .navigation-bar {
@@ -27,30 +27,17 @@
   display: flex;
   flex-direction: row;
   background-color: white;
-  border-radius: 100rpx;
-  height: 60rpx;
+  border-radius: 22rpx;
+  height: 50rpx;
   width: 50%;
 }
 
 .icon{
-  height: 60rpx;
-  line-height: 60rpx;
   margin: 6rpx;
 }
 
 .input{
-  margin: 6rpx;
-  color: gray;
-}
-
-.search{
-  line-height: 50rpx;
-  background-color: #5696F8;
-  margin: 5rpx;
-  height: 50rpx;
-  border-radius: 100rpx;
-  padding-left: 10rpx;
-  padding-right: 10rpx;
-  font-size: 16px;
-  font-weight: bold;
+  color: black;
+  font-size: smaller;
+  width: 100%;
 }

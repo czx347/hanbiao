@@ -1,0 +1,25 @@
+<Dialog id="Dialog" wx:if="{{Dialog}}">
+  <view slot="text" style="color:white;line-height:70rpx;width:100%">是否使用微信头像与昵称？</view>
+  <view  slot="button" style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
+    <button size="mini" plain style="width: 150rpx;height: 60rpx;border: none;background-color:white;font-size:30rpx;line-height:60rpx;margin:5rpx 20rpx;" open-type="getUserInfo" bindgetuserinfo="GetUserInfo">去授权</button>
+  </view>
+</Dialog>
+<back text="个人信息"></back>
+
+<navigator class="inf-main" style="line-height: 150rpx;" url="/pages/changeImage/changeImage" open-type="navigate">
+  <view>头像</view>
+  <view class="inf-main-right">
+    <image src="{{user.user_photo || '../../images/noImage.jpg'}}" class="inf-main-image" mode="scaleToFill"></image>
+    <view style="font-weight: 800;color:gray;margin-left: 20rpx;">></view>
+  </view>
+</navigator>
+
+<view style="  width: 100%;height: 2rpx;background-color: rgb(216, 208, 208);"></view>
+
+<view class="inf-main" style="line-height: 80rpx;" for="name">
+  <view>昵称</view>
+  <view class="inf-main-right">
+    <input type="text" class="inf-main-input" id="name" value="{{user.user_name}}" bindblur="updataName"  placeholder="请输入昵称" />
+    <view style="font-weight: 800;color:gray;margin-left: 20rpx;">></view>
+  </view>
+</view>

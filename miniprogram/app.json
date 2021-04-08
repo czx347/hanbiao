@@ -1,13 +1,19 @@
 {
   "pages": [
-    "pages/admin/edit/edit",
-    "pages/admin/audit/audit",
-    "pages/admin/inform/inform",
-    "pages/my/my",
-    "pages/admin/userManagement/userManagement",
     "pages/bind/bind",
-    "pages/login/login",
-    "pages/home/home"
+    "pages/information/information",
+    "pages/changeImage/changeImage",
+    "pages/user/add/add",
+    "pages/userRequest/userRequest",
+    "pages/uploadImage/uploadImage",
+    "pages/user/history/history",
+    "pages/admin/edit/edit",
+    "pages/my/my",
+    "pages/change/change",
+    "pages/feedback/feedback",
+    "pages/about/about",
+    "pages/admin/userManagement/userManagement",
+    "pages/admin/inform/inform"
   ],
   "window": {
     "backgroundColor": "#F2F2F2",
@@ -20,16 +26,16 @@
     "selectedColor": "#5696F8",
     "list": [
       {
-        "pagePath": "pages/admin/userManagement/userManagement",
-        "text": "用户",
-        "iconPath": "images/user.png",
-        "selectedIconPath": "images/userAfter.png"
+        "pagePath": "pages/user/history/history",
+        "text": "历史",
+        "iconPath": "images/history.png",
+        "selectedIconPath": "images/historyAfter.png"
       },
       {
-        "pagePath": "pages/admin/audit/audit",
-        "text": "审核",
-        "iconPath": "images/shenghe.png",
-        "selectedIconPath": "images/shengheAfter.png"
+        "pagePath": "pages/admin/userManagement/userManagement",
+        "text": "增加",
+        "iconPath": "images/add.png",
+        "selectedIconPath": "images/addAfter.png"
       },
       {
         "pagePath": "pages/my/my",
@@ -40,5 +46,10 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取你目前位置"
+    }
+  }
 }

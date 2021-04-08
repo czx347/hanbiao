@@ -1,0 +1,40 @@
+<top text="标题"  bind:search="search"></top>
+
+<view class="history-top" style="{{'top:' + navigationBarAndStatusBarHeight}}">
+  <view  class="history-button {{currentTab==2 ? 'active' : 'blackBorder'}}" data-idx="2" bindtap="navbarTap">未审核</view>
+  <view  class="history-button {{currentTab==3 ? 'active' : 'blackBorder'}}" data-idx="3" bindtap="navbarTap">已审核</view>
+</view>
+
+
+<view class="sroll" bindtouchstart="touchStart" bindtouchend="touchEnd" bindtouchmove="touchMove">
+  <view style="width: 100%;  height: 110rpx; "></view>
+  <view wx:for="{{request}}" wx:key="unique" class="history-data" bindtap="requestDetail" data-idx="{{index}}">
+    <view>
+      <view class="history-titlt">{{item.req_title}}</view>
+      <view class="history-time" wx:if="{{user_admin == 0}}">涵码：<text style="color:rgb(119, 113, 113)">{{item.invi_detail}}</text></view>
+      <view class="history-time" wx:if="{{user_admin == 1}}">用户：<text style="color:rgb(119, 113, 113)">{{item.user[0].user_name}}</text></view>
+      <view class="history-time">时间：<text style="color:rgb(119, 113, 113)">{{item.req_time}}</text></view>
+      <view class="history-schedule">
+        <text>处理进度</text>
+        <progress percent="0" color="{{item.req_state == 4 ? 'rgb(207, 84, 84)' : '#5696F8'}}" active stroke-width="5" duration="1" wx:if="{{item.req_state == 1}}"></progress>
+        <progress percent="{{item.req_state == 2 ? '50' : '100'}}" color="{{item.req_state == 3 ? 'rgb(207, 84, 84)' : '#5696F8'}}" active stroke-width="5" duration="1" wx:else></progress>
+      </view>
+    </view>
+    <view class="button-group" wx:if="{{user_admin == 0}}">
+      <view class="history-button mini-button" style="background:#F0A35F" wx:if="{{item.req_state == 1}}" data-idx="{{index}}" catchtap='submit'>提交</view>
+      <view class="history-button mini-button" style="background:rgb(207, 84, 84)" wx:if="{{item.req_state == 1}}" data-idx="{{index}}" catchtap='delete'>删除</view>
+      <view class="history-button mini-button" style="background:rgb(207, 84, 84)" hidden="{{item.req_state != 2 }}" 
+      data-idx="{{index}}" catchtap='UserRecall'>撤回</view>
+      <view class="history-button mini-button" style="background:#5696F8" wx:if="{{item.req_state > 2 }}" 
+        hidden="{{item.req_reply == ''}}" data-idx="{{index}}" catchtap='option'>意见</view>
+    </view>
+    <view class="button-group" wx:if="{{user_admin == 1}}">
+      <view class="history-button mini-button" style="background:rgb(207, 84, 84)" hidden="{{item.req_state < 3 }}" catchtap='adminRecall'  data-idx="{{index}}">撤回</view>
+      <view class="history-button mini-button" style="background:#5696F8" wx:if="{{item.req_state > 2 }}" 
+        hidden="{{item.req_reply == ''}}"  data-idx="{{index}}" catchtap='option'>意见</view>
+    </view>
+  </view>
+
+
+  <bottom text="{{text}}"></bottom>
+</view>

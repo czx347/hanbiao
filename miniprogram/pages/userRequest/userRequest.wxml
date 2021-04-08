@@ -1,0 +1,23 @@
+<back text="{{user}}"></back>
+
+<view class="sroll">
+  <view wx:for="{{request}}" wx:key="unique" class="history-data" bindtap="requestDetail" data-idx="{{index}}">
+    <view>
+      <view class="history-titlt">{{item.req_title}}</view>
+      <view class="history-time">时间：<text style="color:rgb(119, 113, 113)">{{item.req_time}}</text></view>
+      <view class="history-schedule">
+        <text>处理进度</text>
+        <progress percent="0" color="{{item.req_state == 4 ? 'rgb(207, 84, 84)' : '#5696F8'}}" active stroke-width="5" duration="1" wx:if="{{item.req_state == 1}}"></progress>
+        <progress percent="{{item.req_state == 2 ? '50' : '100'}}" color="{{item.req_state == 3 ? 'rgb(207, 84, 84)' : '#5696F8'}}" active stroke-width="5" duration="1" wx:else></progress>
+      </view>
+    </view>
+    <view class="button-group">
+      <view class="history-button mini-button" style="background:rgb(207, 84, 84)" hidden="{{item.req_state < 3 }}" catchtap='adminRecall'  data-idx="{{index}}">撤回</view>
+      <view class="history-button mini-button" style="background:#5696F8" wx:if="{{item.req_state > 2 }}" 
+        hidden="{{item.req_reply == ''}}"  data-idx="{{index}}" catchtap='option'>意见</view>
+    </view>
+  </view>
+
+
+  <bottom text="{{text}}"></bottom>
+</view>

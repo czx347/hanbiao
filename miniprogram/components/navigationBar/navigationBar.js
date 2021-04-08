@@ -1,4 +1,3 @@
-// component/navigationBar/navigationBar.js
 Component({
   /**
    * 组件的属性列表
@@ -7,7 +6,7 @@ Component({
     text: { 
       type: String,
       value: ''
-    }
+    },
 
   },
 
@@ -25,7 +24,8 @@ Component({
     navigationBarAndStatusBarHeight:
       wx.getStorageSync('statusBarHeight') +
       wx.getStorageSync('navigationBarHeight') +
-      'px'
+      'px',
+      input: "",
 
   },
 
@@ -33,6 +33,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    bindInput(e){
+      this.data.input = e.detail.value
+    },
+    click(){
+      this.triggerEvent('search', this.data.input)
+    }
+    
 
   }
 })

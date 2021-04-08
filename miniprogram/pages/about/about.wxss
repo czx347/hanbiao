@@ -1,0 +1,49 @@
+.about-top{
+  margin-top: 200rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.about-logo{
+  width: 200rpx;
+  height: 200rpx;
+  
+}
+
+.about-name{
+  font-size: 50rpx;
+  font-weight: 800;
+  margin: 20rpx;
+  
+}
+
+.about-slogan{
+  font-size: 20rpx;
+  color: rgba(111, 117, 113, 0.877);
+  letter-spacing:5rpx;
+  text-align: center;
+  width: 100%;
+  
+}
+
+.about-main{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid rgb(216, 208, 208);
+  width: 80%;
+  margin: 100rpx auto;
+  padding: 20rpx;
+}
+
+.about-main-left{
+  height: 40rpx;
+  line-height: 40rpx;
+
+}
+
+.about-main-right{
+  font-size: small;
+  height: 40rpx;
+  line-height: 40rpx;
+}

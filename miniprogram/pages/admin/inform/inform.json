@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "back":"/components/back/back"
+    "back":"/components/back/back",
+    "bottom":"/components/bottom/bottom"
   }
 }

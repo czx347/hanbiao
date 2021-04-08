@@ -2,13 +2,27 @@ page{
   width: 100%;
   height: 100%;
 }
+.navigation-container {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  background-color: #5696F8;
+}
+.navigation-bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
 .background{
   position: absolute;
   width: 100%;
   height: 40%;
   background-color: #5696F8;
-  border-radius: 0  0 20% 20%;
+  border-radius: 0  0 20rpx 20rpx;
   left: 0;
   top: 0;
   z-index: -1;
@@ -17,40 +31,61 @@ page{
 .infor{
   display: flex;
   flex-direction: row;
-  margin: 50rpx;
+  margin: 60rpx;
+  height: 180rpx;
+  margin-top: 30rpx;
 }
 
 .my-image{
-  width: 150rpx;
-  height: 150rpx;
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 400rpx;
   border: white 5rpx solid;
 }
 
 .infor-name{
-  margin: 0 0 20rpx 20rpx;
+  margin: 0 0 0 40rpx;
   font-size: 60rpx;
   color: white;
   font-weight: 600;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width: 450rpx;
+  height: 60rpx;
+  line-height: 60rpx;
 
 }
 
 .infor-bind{
-  font-size: 20rpx;
-  margin: 30rpx 0 20rpx 20rpx;
+  font-size: 25rpx;
+  margin: 20rpx 0 20rpx 40rpx;
   border-radius: 20rpx;
   color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 480rpx;
 }
 
 .infor-bind view{
-  background-color: #C9E2F8;
-  color: black;
-  border-radius: 10rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width: 480rpx;
+}
+
+.infor-bind-buttons{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10rpx;
+}
+
+.infor-bind-button{
+  border-radius: 30rpx;
   padding: 5rpx 10rpx;
-  margin: 0 10rpx;
+  margin: 0  0 0 30rpx;
+  text-align: center;
 }
 
 .my-main{
@@ -62,10 +97,10 @@ page{
 
 .my-inform{
   background-color: white;
-  width: 90%;
   border-radius: 20rpx;
   margin-bottom: 30rpx;
-  padding: 20rpx;
+  padding: 30rpx;
+  margin: 20rpx;
 }
 
 .inform-text{
@@ -80,41 +115,68 @@ page{
 }
 
 .inform-details{
-  width: 100%;
+  width: 96%;
   height: 100rpx;
   background-color: rgb(236, 231, 231);
   margin: 20rpx auto 0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  word-wrap:break-word;
+  border-radius: 20rpx;
+  text-align: center;
+  padding: 2%;
 }
 
 .min-title{
+  height: 30rpx;
   font-size: small;
-  width: 100%;
-  border-bottom: 1rpx black solid;
-  margin-bottom: 20rpx;
+  border-bottom: 1rpx rgb(216, 208, 208) solid;
+  background-color: white;
+  margin: 0 20rpx;
+  border-radius: 20rpx 20rpx 0 0;
+  padding: 15rpx 20rpx;
+  color: gray;
 }
 
 .my-title{
   display: flex;
   justify-content: space-between;
-  margin: 40rpx 0;
+  padding: 30rpx;
+  height: 40rpx;
+  line-height: 40rxp;
+  background-color: white;
+  margin: 0 20rpx;
+
 
 }
 
-.my-title text{
-  margin: 10rpx;
+.my-title-front{
+  height: 40rpx;
   line-height: 40rpx;
-  vertical-align: middle;
-  
+  margin-left: 20rpx;
+}
+
+.my-title view{
+  display: flex;
+  flex-direction: row;
 }
 
 .my-title image{
   width: 40rpx;
   height: 40rpx;
-  vertical-align:middle;
 }
 
 .my-button{
   text-align: center;
   background-color: #DFE7F2;
   font-weight: 600;
+  margin: 160rpx 20rpx 50rpx 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  font-family: -webkit-body;
+}
+
+.my-title-hover{
+  background-color: rgb(184, 182, 182);
 }

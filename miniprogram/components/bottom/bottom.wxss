@@ -1,0 +1,7 @@
+.main{
+  width: 100%;
+  margin: 20rpx auto;
+  text-align: center;
+  color: gray;
+  font-size: small;
+}
